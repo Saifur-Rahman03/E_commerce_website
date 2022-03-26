@@ -1,0 +1,15 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+    {% if searched %}
+        <h2>You searched for... '{{ searched }}'</h2>
+        <br/>
+        {% for item in items %}
+        <img class="short" src="{{item.imageURL}}">  <a href="{% url 'show_item' item.id %}"><h5>{{item}}</a> - &#2547;{{item.price|floatformat:2}}</h5> <br/>   
+        {% endfor %}
+    {% else %}
+        <h2>You forgot to search...</h2>
+    {% endif %}
+    
+{% endblock content %}

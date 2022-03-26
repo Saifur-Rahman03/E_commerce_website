@@ -1,0 +1,32 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+<header class="title">
+    <h2><span>LOGIN</span></h2>
+</header>
+    <div class="row">
+      <div class>
+        <form action="login" method="post">
+          {% csrf_token %}
+        
+            <div class="col-lg-12">
+              <input type="text" style="color: black;" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="col-lg-12">
+              <input type="password" style="color: black;" class="form-control" name="password" placeholder="Password">  
+            </div>
+            <div class="col-lg-12">
+                <input type="Submit" style="color: black;" class="btn btn-default submit">
+            </div>
+            <div class="col-lg-12" style="text-align: center;">
+                {% for message in messages %}
+                  <h3>{{message}}</h3>
+                {% endfor %}
+            </div>
+        </form>
+      </div>
+    </div>
+    
+{% endblock content %}
+
